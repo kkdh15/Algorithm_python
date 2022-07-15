@@ -83,51 +83,44 @@
 #                 cnt_wb += 1
 #         res = min(res, cnt_bw, cnt_wb)
 # print(res)
+
 # 1018
-n, m = map(int, input().split())
-chess = []
+# n, m = map(int, input().split())
+# chess = []
 
-for i in range(n):
-    chess.append(input())
+# for i in range(n):
+#     chess.append(input())
 
-res = 64
-for row in range(n-7):
-    for col in range(m-7):
-        cnt = 0
-        for i in range(row, row+8, 2):
-            for k in range(col, col+8, 2):
-                if chess[i][k] != 'W':
-                    cnt += 1
-            for k in range(col+1, col+8, 2):
-                if chess[i][k] != 'B':
-                    cnt += 1
-        for i in range(row+1, row+8, 2):
-            for k in range(col, col+8, 2):
-                if chess[i][k] != 'B':
-                    cnt += 1
-            for k in range(col+1, col+8, 2):
-                if chess[i][k] != 'W':
-                    cnt += 1
-        sum = min(cnt, 64-cnt)
-        res = min(res, sum)
-print(res)
-
-# BBBBBBBBWBWBW
-# BBBBBBBBBWBWB
-# BBBBBBBBWBWBW
-# BBBBBBBBBWBWB
-# BBBBBBBBWBWBW
-# BBBBBBBBBWBWB
-# BBBBBBBBWBWBW
-# BBBBBBBBBWBWB
-# WWWWWWWWWWBWB
-# WWWWWWWWWWBWB
+# res = 64
+# for row in range(n-7):
+#     for col in range(m-7):
+#         cnt = 0
+#         for i in range(row, row+8, 2):
+#             for k in range(col, col+8, 2):
+#                 if chess[i][k] != 'W':
+#                     cnt += 1
+#             for k in range(col+1, col+8, 2):
+#                 if chess[i][k] != 'B':
+#                     cnt += 1
+#         for i in range(row+1, row+8, 2):
+#             for k in range(col, col+8, 2):
+#                 if chess[i][k] != 'B':
+#                     cnt += 1
+#             for k in range(col+1, col+8, 2):
+#                 if chess[i][k] != 'W':
+#                     cnt += 1
+#         sum = min(cnt, 64-cnt)
+#         res = min(res, sum)
+# print(res)
 
 # 1436
-# N = int(input())
-# 0~5 666
-# 666 0~9
-# 7~9 666
-# 1~5 666 0~9
-# 666 00~99
-# 7~9 666 0~9
+N = int(input())
+cnt = 0
+num = 666
+while True:
+    if '666' in str(num):
+        cnt += 1
+    if cnt == N:
+        print(num)
+        break
+    num += 1
